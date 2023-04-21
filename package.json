@@ -1,0 +1,14 @@
+{
+  "name": "site-performance-review",
+  "version": "1.0.0",
+  "description": "A fresh new Architect project!",
+  "scripts": {
+    "dev": "npx sandbox"
+  },
+  "dependencies": {
+    "@architect/architect": "^10.11.2",
+    "@architect/functions": "^5.4.0",
+    "performance-leaderboard": "^10.0.0",
+    "xml2json": "^0.12.0"
+  }
+}
