@@ -33,9 +33,9 @@ export async function handler (event) {
 		// lookup each url in dynamo db
     let pageURL = page.loc;
     let urlObj = new URL(pageURL);
-    let domain = urlObj.origin;
+    let sitedomain = urlObj.origin;
 
-    let urlInfo = await data.evaluations.get({pageURL, domain});
+    let urlInfo = await data.evaluations.get({pageURL, sitedomain});
     console.log('retrieved info about '+page.loc);
     if(!urlInfo || urlInfo.lastmod !== page.lastmod) {
       let urlsToReview = [];
@@ -50,7 +50,7 @@ export async function handler (event) {
         page.pageURL = page.loc;
         delete page.loc;
         page.lastreviewed = new Date().getTime();
-        page.domain = domain;
+        page.sitedomain = sitedomain;
         console.log(page);
 
         console.log('inserting this reviewed page')

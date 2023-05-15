@@ -5,11 +5,11 @@ site-performance-review
 get /
 
 @scheduled
-evaluate cron(0 23 * * * *)
+evaluate cron(0 23 * * ? *)
 
 @tables
 evaluations
-  domain *String
+  sitedomain *String
   pageURL **String
   
 @aws

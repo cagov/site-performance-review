@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A fresh new Architect project!",
   "scripts": {
-    "dev": "npx sandbox"
+    "dev": "npx arc sandbox"
   },
   "dependencies": {
     "@architect/architect": "^10.11.2",

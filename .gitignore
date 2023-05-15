@@ -1,6 +1,6 @@
 # Lambda setup
 sam.json
-sam.yml
+sam.yaml
 
 # Logs
 logs
