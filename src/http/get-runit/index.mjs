@@ -30,13 +30,14 @@ export async function handler (req) {
     console.log('looked up this in db: '+page.loc);
     if(!urlInfo || urlInfo.lastmod !== page.lastmod) {
 
-      let fetchUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?strategy=mobile&category=accessibility&category=best-practices&category=performance&category=seo&url=${encodeURIComponent(pageURL)}`;
+      let fetchUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?strategy=mobile&category=accessibility&category=performance&url=${encodeURIComponent(pageURL)}`;
       let fetchResponse = await fetch(fetchUrl);
       let fetchData = await fetchResponse.json();
       console.log(fetchData.lighthouseResult.categories.performance.score);
 
       if(fetchData.lighthouseResult.requestedUrl === page.loc && fetchData.lighthouseResult.categories.performance.score > 0.1) {
         page.performance = fetchData.lighthouseResult.categories.performance.score;
+        page.accessibility = fetchData.lighthouseResult.categories.accessibility.score;
         // insert into dynamo
         page.pageURL = page.loc;
         delete page.loc;
