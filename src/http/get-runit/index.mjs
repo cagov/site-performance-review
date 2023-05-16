@@ -1,8 +1,11 @@
+import arc from '@architect/functions';
 import parser from 'xml2json-light';
 import fetch from 'node-fetch';
-import arc from '@architect/functions';
 
-export async function handler (event) {
+export async function handler (req) {
+
+  let startTime = new Date().getTime();
+  console.log(startTime);
 
   const sitemapResponse = await fetch("https://innovation.ca.gov/sitemap.xml");
   const textData = await sitemapResponse.text();
@@ -55,5 +58,12 @@ export async function handler (event) {
   console.log(endTime)
   console.log(endTime - startTime);
 
-  return
+  return {
+    statusCode: 200,
+    headers: {
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+      'content-type': 'text/html; charset=utf8'
+    },
+    body: `run complete`
+  }
 }

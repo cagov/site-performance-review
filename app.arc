@@ -3,6 +3,7 @@ site-performance-review
 
 @http
 get /
+get /runit
 
 @scheduled
 evaluate cron(0 23 * * ? *)

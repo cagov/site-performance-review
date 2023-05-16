@@ -1,6 +1,7 @@
 # Lambda setup
 sam.json
 sam.yaml
+.DS_Store
 
 # Logs
 logs
