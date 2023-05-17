@@ -27,10 +27,3 @@ This can run locally if the local "dynamodb instance" is populated.
 
 The 11ty build process retrieves the latest performance information from the get endpoint sending the site domain as a url parameter so we always retrieve the latest performance data.
 
-## Future improvements
-
-Currently the page is reviewed for performance again if the sitemap last modified date is newer than the last date we recorded evaluating performance in this lambda's database.
-
-A page may be updated by having one of its wrapping or sub templates updated. Since we determine the last modifided date of the content from WordPress a template modification will not change the last modified date.
-
-We may need to clear out the dynamodb dataset for the site if we make big template changes to get it to rerun all the performance audits on all pages against the updated version of the site if the last modified dates for each page don't change.
