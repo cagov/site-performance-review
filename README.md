@@ -9,9 +9,9 @@ Process is:
 - If a new page or a page that has a new lastmod date is discovered run a new performance analysis
 - Record updated performance analysis in dynamodb
 - The performance analysis is a really slow process, takes several seconds per url.
-- There were 73 urls in the ODI site when this repo was created. Those can all be analyzed in less than the mas 15 minute timeout on a lambda but most of them don't change that often so running the expensive performance analysis on the bulk of them will rarely be necessary.
+- There are 95 urls in the ODI site at the time of this writing. Those cannot all be analyzed in less than the 15 minute timeout on a lambda (processing time per URL is 9-20 seconds) but most of them don't change that often so running the expensive performance analysis on the bulk of them will rarely be necessary.
 
-This code is setup to run on a schedule once a day.
+This code is setup to run on a schedule every four hours.
 
 It is deployed to an AWS production environment via:
 
