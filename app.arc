@@ -6,7 +6,7 @@ get /
 get /runit
 
 @scheduled
-evaluate cron(0 23 * * ? *)
+evaluate cron(0 */4 * * ? *)
 
 @tables
 evaluations
