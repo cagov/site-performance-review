@@ -2,6 +2,10 @@ import arc from '@architect/functions';
 import parser from 'xml2json-light';
 import fetch from 'node-fetch';
 
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
 export async function handler (req) {
 
   let startTime = new Date().getTime();
@@ -51,6 +55,8 @@ export async function handler (req) {
         console.log(insertPage);
 
       }
+      // Wait for 1 second
+      await delay(1000);
     }
 
   }
