@@ -55,8 +55,13 @@ export async function handler (req) {
         console.log(insertPage);
 
       }
-      // Wait for 1 second
-      await delay(1000);
+      // Wait for 2 seconds to avoid getting rate limited
+      // perf improved at 1 second from 9->13
+      // no delay:  8-9
+      // 1 second   13
+      // 2 seconds  19-21
+      // 5 seconds  ?
+      await delay(5000);
     }
 
   }
