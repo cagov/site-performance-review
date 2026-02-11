@@ -13,6 +13,17 @@ Process is:
 
 This code is setup to run on a schedule every four hours.
 
+## PageSpeed API key
+
+Google PageSpeed API now requires quota from an associated Google Cloud project. Set `PAGESPEED_API_KEY` for the Lambda functions so calls to `pagespeedonline.googleapis.com` can return Lighthouse data.
+
+## Scheduled batching controls
+
+The scheduled evaluator processes a rotating batch of sitemap URLs each run to stay within Lambda runtime limits.
+
+- `BATCH_SIZE` (default `25`): number of URLs checked per scheduled run.
+- `MAX_RUN_SECONDS` (default `840`): runtime budget before the function stops early.
+
 It is deployed to an AWS production environment via:
 
 ```
