@@ -6,7 +6,7 @@
     "dev": "npx arc sandbox"
   },
   "dependencies": {
-    "@architect/architect": "^10.11.2",
+    "@architect/architect": "^10.16.3",
     "@architect/functions": "^5.4.0",
     "node-fetch": "^3.3.1",
     "xml2json-light": "^1.0.6"
