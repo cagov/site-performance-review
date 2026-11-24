@@ -34,7 +34,7 @@ Which put it at <a href="https://qdrfvq20o2.execute-api.us-west-1.amazonaws.com"
 
 It was not deployed to a staging environment. That wouldn't cause problems but would duplicate the same activity as production on the same schedule in a different dynamodb that is not read by anything.
 
-This can run locally if the local "dynamodb instance" is populated.
+This can run locally with `npm run dev` (Node 22 or later, required by Architect 12) if the local "dynamodb instance" is populated.
 
 The 11ty build process retrieves the latest performance information from the get endpoint sending the site domain as a url parameter so we always retrieve the latest performance data.
 
